@@ -5,3 +5,10 @@
 - もしすでに設定している場合等は、`ALTER USER root@localhost IDENTIFIED BY 'auth_string';`で変更.
 - コマンドライン から変更 `mysqladmin password 'auth_string' -u root@localhost -p` : パスワードの指定にシングルクォーテーションがあってもなくても問題なし.
 - 念のため、初めにroot でminitorに入って新しいユーザーを作成してパスワードをうまく設定できるか確かめてから、rootの設定を変更するようにしたほうがいい。
+## Mysql でsettingsを確認したい場合
+- `show variables like '%char%';`でsettingsでcharを含むkeyに関する情報を閲覧できる.
+- この方法でほとんどのsettingsは見れる. `show variable like '%version%';` `show variables like '%port%';`
+## characterに関して
+- character_set_system はファイル名に使用. [こちらを参照](https://qiita.com/yukiyoshimura/items/d44a98021608c8f8a52a)
+- `show create table tablename;` DEFAULT CHARSET, COLLSTE を確認.
+- サーバ側の文字コードセットは、データベース、テーブル、カラム単位で指定可能。小さな単位での指定が有効となる。ここでいうと**カラムに指定した文字コードが優先される**ので、文字化けなどの調査を行う際は、テーブル定義も確認する必要がある。
