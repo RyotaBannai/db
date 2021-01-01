@@ -6,9 +6,9 @@
 - stop `brew services stop postgresql`
 - list databases `\list` or `\l`
 - choose database `\c [database name]`
-- create databse `create database [database name];`
+- create database `create database [database name];` (in repl)
+- `createdb -O [username] [dbname]` -> create new db with owner. (from command line)
 - create table `create table People (id char(4) NOT NULL, name text NOT NULL, age integer , primary key(id));` put all scheme inside () each data should be separated by comma and each set has column name, data type, and restrictin, such as NOT NULL.
-- `createdb -0 [username] [dbname]` -> create new db with owner.
 - `\d [dbname]` -> check table scheme.
 - `insert into people(id, name, age) values('0001', 'Jobs', 23);` -> insert data example.
 - `insert into people values('0001', 'Jobs', 23);` -> omit columns for simplicity.
